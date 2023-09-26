@@ -8,17 +8,23 @@
   </head>
   <body>
     <div id="form" class="container">
-      <form action="">
+      <form action="#">
         <label> password</label>
-        <input type="password" placeholder="type our password" />
-        <button>Show/Hide password</button>
+        <input :type="fieldType" placeholder="type our password" />
+        <button @click.pervent="switchField">Show/Hide password</button>
       </form>
     </div>
-    <script src="./js/vue.js"></script>
+     <script src="./js/vue.js"></script>
     <script>
       var app = new Vue({
         el: "#form",
-        data() {},
+        data: {
+            fieldType:'password',
+        },methods: {
+            switchField(){
+                this.fieldType = this.fieldType === 'password' ? 'text' :'password';
+            }
+        },
       });
     </script>
   </body>
